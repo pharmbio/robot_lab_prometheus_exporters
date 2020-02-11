@@ -20,9 +20,7 @@ OPTION_GET_BME280_TEMP = b'a'
 OPTION_GET_BME280_HUMID = b'b'
 OPTION_GET_BME280_PRESSURE = b'c'
 
-#serial_device = '/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_55834323233351912192-if00'
-#serial_device = '/dev/serial/by-id/usb-Arduino_LLC_Arduino_Nano_Every_6EB94DED51514743594A2020FF06191B-if00'
-serial_device = '/dev/serial/by-id/usb-Arduino_LLC_Arduino_Nano_Every_A9873C9A51514743594A2020FF062C4A-if00'
+serial_device = '/dev/serial/by-id/usb-Arduino_LLC_Arduino_Nano_Every_6EB94DED51514743594A2020FF06191B-if00'
 server = None
 
 def getFloatFromServer(option):
@@ -75,6 +73,8 @@ with serial.Serial(serial_device, BAUD_RATE, timeout=2) as server:
     
     server.reset_input_buffer()
     server.reset_output_buffer()
+    
+    time.sleep(0.2)
 
     while(True):
       
