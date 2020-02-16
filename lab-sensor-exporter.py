@@ -46,7 +46,7 @@ if __name__ == '__main__':
                             datefmt='%H:%M:%S',
                             level=logging.INFO)
 
-  prometheus_client.start_http_server(9999)
+  prometheus_client.start_http_server(10001)
   
   while True:
     logging.info("Hello")
