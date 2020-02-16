@@ -1,5 +1,35 @@
 Robot lab prometheus exporters for lab sensors and robot status/statistics
 
-# Arduino
+## Arduino
+```
+# Install arduino-cli
+cd /tmp
+curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+sudo mv bin/arduino-cli /usr/local/bin/
+
+# setup arduini-cli
+arduino-cli config init
+arduino-cli core update-index
+arduino-cli core install arduino:megaavr
+
+# Add user to serial user group
+sudo usermod -a -G dialout $USER
+# Logout from computer (for getting the usermod changes)
+```
+
+# Arduino Lib requirements
+```
 arduino-cli lib install "Adafruit BME280 Library"@1.0.10
+```
+
+## Python
+```
+# create and activate venv
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+
+# Install requirements
+pip install -r requirements.txt
+```
 
