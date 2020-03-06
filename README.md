@@ -33,3 +33,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Debugging serial
+```
+# Minicom is an OK serial consol program for Linux
+ 
+minicom -b 9600 --noinit -D /dev/serial/by-id/usb-Arduino_LLC_Arduino_Nano_Every_6EB94DED51514743594A2020FF06191B-if00
+
+# Switch on Local Echo with Ctl + A and then E

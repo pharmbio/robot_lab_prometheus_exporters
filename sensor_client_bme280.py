@@ -36,13 +36,13 @@ def getFloatFromServer(server, option):
 
     # check response
     if(start_byte != START_BYTE):
-        raise Exception("Error wrong startbyte")
+        raise Exception("Error wrong startbyte:" + str(start_byte) + " expected: " + str(START_BYTE))
 
     if(option != response_option):
-        raise Exception("Error wrong response option")
+        raise Exception("Error wrong response option:" + str(response_option) + " expected: " + str(option))
 
     if(endbyte != END_BYTE):
-        raise Exception("Error wrong endbyte")
+        raise Exception("Error wrong endbyte:" + str(endbyte) + " expected: " + str(START_BYTE))
 
     # cast to float and return
     float_as_struct = struct.unpack('f', float_as_bytes)
@@ -86,6 +86,7 @@ if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s,%(msecs)d %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                             datefmt='%H:%M:%S',
                             level=logging.INFO)
+    # print("Before get temp")
 
     temperature = getTemperature(SERIAL_DEVICE)
     print("Temperature = " + str(temperature / 100) + " °C")
