@@ -1,0 +1,8 @@
+[Unit]
+Description=prometheus rest exporter server
+
+[Service]
+ExecStart=/pharmbio/robot_lab_ptometheus_exporters/start-lab-rest-exporter.py
+
+[Install]
+WantedBy=multi-user.target
