@@ -23,12 +23,18 @@ ROBOT_STATUS_GAUGE = prometheus_client.Gauge('robots_ready_status',
 
 
 def getIsReadyValue(gauge, url, location):
-  response = requests.get(url, timeout=1)
-  logging.debug(str(response.content))
-  data = json.loads(response.content)
-  value = data['value']
-  logging.debug(str(gauge.describe()) + " = " + str(url) + " = " + str(value))
-  gauge.labels(location).set(value)
+  try:
+    response = requests.get(url, timeout=1)
+    logging.debug(str(response.content))
+    data = json.loads(response.content)
+    value = data['value']
+    logging.debug(str(gauge.describe()) + " = " + str(url) + " = " + str(value))
+    gauge.labels(location).set(value)
+  except Exception as e:
+    print(traceback.format_exc())
+    logging.error(e)
+    gauge.labels(location).set(False)
+
 
 
 if __name__ == '__main__':
