@@ -1,6 +1,6 @@
 Robot lab prometheus exporters for lab sensors and robot status/statistics
 
-We monitor Temperature, Humidity and Air Pressure with Prometheus and Visualize it in the “Robot Lab Grafana Dashboard”. This is done with a BME280 sensor that is connected to an Arduino Nano. Sensor values are read with a Python program using serial communication over USB 2.0 cable. The reading of sensor values are triggered by a Prometheus Exporter (implemented in Python).
+We monitor Temperature, Humidity and Air Pressure with Prometheus and Visualize it in the “Robot Lab Grafana Dashboard”. This is done with a BME280 sensor that is connected to an Arduino Nano. Sensor values are read with a Python [sensor_client_bme280.py](sensor_client_bme280.py) using serial communication over USB 2.0 cable. The reading of sensor values are triggered by a Prometheus Exporter (implemented in Python).
 
 ## Arduino
 ```
